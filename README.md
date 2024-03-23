@@ -1,4 +1,4 @@
-<h1 align="center">Every <sup><sub><sub>Azumanga Daioh</sub></sub></sup> Frame in Order BOT</h1>
+<h1 align="center">Every Azumanga Daioh Frame in Order BOT</h1>
 
 <div align="center">
 
