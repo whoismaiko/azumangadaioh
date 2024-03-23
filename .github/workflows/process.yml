@@ -1,0 +1,50 @@
+# Don't change this `name` below, the script might broke at some point
+name: "init banner"
+on:
+   workflow_dispatch:
+   schedule:
+     # You can change this CRON syntax to customize execute interval
+     - cron: "0 */2 * * *"
+
+jobs:
+ checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "ownership check"
+        env:
+          trig_actor: ${{ github.triggering_actor }}
+          repo_ownr: ${{ github.repository_owner }}
+        run: |
+          case "${trig_actor}" in
+            "${repo_ownr}"|github-actions*) : ;;
+            *) printf '%s\n'"Runner prevented to run because the script is executed by an untrusted user \"${trig_actor}\". (Only owner can execute, for security)" >&2 ; exit 1 ;;
+          esac
+
+      - name: "chk wf status"
+        id: check_status
+        run: |
+          response="$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/actions/workflows/bot_runner.yml/runs")"
+          status="$(echo "${response}" | jq -r '.workflow_runs[].status')"
+          if grep -qE 'in_progress' <<< "${status}"; then
+            echo "The bot_runner is still running, The script prevented this workflow to run to avoid conflicts... Cancelling!!"
+            exit 1
+          fi
+          : "Ignore"
+
+ inits:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "checkout"
+        uses: actions/checkout@v3
+
+      - name: "execute"
+        run: bash img_process.sh "in_progress"
+
+      - name: "commit banner"
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "stat: Processing..."
+          repository: .
+          file_pattern: status/*.png
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
