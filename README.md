@@ -3,7 +3,6 @@
 <div align="center">
 
 `An OpenSource BOT for Facebook Frame in Order`<br>
-`using [this](https://github.com/fearocanity/ebtrfio-template) source`
 
 </div>
 
