@@ -15,5 +15,8 @@
 If you have ideas or fixes to the bugs and also improving the codes, Feel free to [Contribute](./CONTRIBUTING.md)! 😉
 </div>
 
+
+</div>
+DISCONTINUED
 ## Status
 ![Status Image](status/status.png)
