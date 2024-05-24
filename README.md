@@ -17,8 +17,7 @@ If you have ideas or fixes to the bugs and also improving the codes, Feel free t
 
 
 </div>
-
-DISCONTINUED
-</div>
 ## Status
 ![Status Image](status/status.png)
+<div>
+THIS PROJECT IS DISCONTINUED (due to my school works :( )
