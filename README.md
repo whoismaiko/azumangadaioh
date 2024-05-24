@@ -16,8 +16,7 @@ If you have ideas or fixes to the bugs and also improving the codes, Feel free t
 </div>
 
 
-</div>
 ## Status
 ![Status Image](status/status.png)
 <div>
-THIS PROJECT IS DISCONTINUED (due to my school works :( )
+<h1 align="center"> THIS PROJECT IS DISCONTINUED (due to my school works :( ) </h1>
