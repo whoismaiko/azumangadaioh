@@ -97,11 +97,11 @@ process_subs(){
 					if (g ~ /[[:graph:]]\\N/) gsub(/\\N/," ",g)
 					gsub(/\\N/,"",g)
 					gsub(/\\h/,"",g)
-					if (f ~ /[^,]*,sign/) {
+					if (f ~ /[^,]*,[Ss]ign/) {
 						print "【"g"】"
-					} else if (f ~ /Signs,,/) {
+					} else if (f ~ /[Ss]igns,,/) {
 						print "\""g"\""
-					} else if (f ~ /Songs[^,]*,[^,]*,/) {
+					} else if (f ~ /[Ss]ongs[^,]*,[^,]*,/) {
 						print "『"g"』"
 					} else {
 						print g
@@ -126,7 +126,7 @@ process_multisubs(){
 		[[ -e "${i}" ]] || continue
 		[[ "${i}" =~ .*_([A-Za-z]{2})\.(srt|ass|ssa)$ ]] || continue
 		process_subs "${1}" "${i}"
-		[[ -z "${message_comment}" ]] && { unset message_craft BOOL_IS_OPEDSONG ; continue ;}
+		[[ -z "${message_craft}" ]] && { unset message_craft BOOL_IS_OPEDSONG ; continue ;}
 		if [[ "${BOOL_IS_OPEDSONG}" = "1" ]]; then
 			message_comment+="Lyrics [$(sed -E 's/.*_([A-Za-z]{2})\.(srt|ass|ssa)$/\1/g' <<< "${i}" | tr '[:lower:]' '[:upper:]')]:"$'\n'"${message_craft}"$'\n'
 		else

@@ -55,7 +55,7 @@ helper_depcheck awk sed grep curl bc jq || failed 1
 [[ -e "${FRMENV_ITER_FILE}" ]] || printf '%s' "1" > "${FRMENV_ITER_FILE}"
 { [[ -z "$(<"${FRMENV_ITER_FILE}")" ]] || [[ "$(<"${FRMENV_ITER_FILE}")" -lt 1 ]] ;} && printf '%s' "1" > "${FRMENV_ITER_FILE}"
 
-[[ "${total_frame}" -lt "$(<"${FRMENV_ITER_FILE}")" ]] && exit 0
+[[ "${total_frame}" -lt "$(<"${FRMENV_ITER_FILE}")" ]] && exit 12
 
 # Get the previous frame from a file that acts like an iterator
 prev_frame="$(<"${FRMENV_ITER_FILE}")"
@@ -123,9 +123,9 @@ printf '%s %s\n' "[√] Frame: ${prev_frame}, Episode ${episode}" "https://faceb
 
 # Lastly, This will increment prev_frame variable and redirect it to file
 next_frame="$((prev_frame+=1))"
-incmnt_cnt="$(($(<./counter_n.txt)+1))"
+incmnt_cnt="$(($(<./counter_total_frames.txt)+1))"
 printf '%s' "${next_frame}" > "${FRMENV_ITER_FILE}"
-printf '%s' "${incmnt_cnt}" > ./counter_n.txt
+printf '%s' "${incmnt_cnt}" > ./counter_total_frames.txt
 
 # Note:
 # Please test it with development mode ON first before going to publish it, Publicly or (live mode)
