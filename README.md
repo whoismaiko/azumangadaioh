@@ -19,22 +19,3 @@
 
 If you have ideas or fixes to the bugs and also improving the codes, Feel free to [Contribute](./CONTRIBUTING.md)! 😉
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Status
-![Status Image](status/status.png)
-<div>
-<h1 align="center"> THIS PROJECT IS DISCONTINUED (due to my school works :( ) </h1>
