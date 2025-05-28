@@ -2893,3 +2893,7 @@
 [√] Frame: 2893, Episode 02 https://facebook.com/122206559582254411
 [√] Frame: 2894, Episode 02 https://facebook.com/122206559732254411
 [√] Frame: 2895, Episode 02 https://facebook.com/122206559996254411
+[√] Frame: 2896, Episode 02 https://facebook.com/122206567058254411
+[√] Frame: 2897, Episode 02 https://facebook.com/122206567202254411
+[√] Frame: 2898, Episode 02 https://facebook.com/122206567400254411
+[√] Frame: 2899, Episode 02 https://facebook.com/122206567556254411
